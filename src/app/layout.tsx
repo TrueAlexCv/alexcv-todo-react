@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ListProvider } from "./services/ListContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,3 +31,15 @@ export default function RootLayout({
     </html>
   );
 }
+
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <ListProvider>
+      {}
+      <div>{children}</div>
+    </ListProvider>
+  );
+};
+
+export { Layout };
+
